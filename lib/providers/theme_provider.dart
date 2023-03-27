@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:preferences_app/share_preferences/preferences.dart';
 
 class ThemeProvider extends ChangeNotifier{
 
@@ -10,11 +11,13 @@ class ThemeProvider extends ChangeNotifier{
 
   setLightMode(){
     currentTheme = ThemeData.light();
+    Preferences.isDarkMode = false;
     notifyListeners();
   }
 
   setDarkMode(){
     currentTheme = ThemeData.dark();
+    Preferences.isDarkMode =true;
     notifyListeners();
 
   }

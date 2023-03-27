@@ -28,7 +28,11 @@ class MyApp extends StatelessWidget {
       title: 'Material App',
       debugShowCheckedModeBanner: false,
       initialRoute: HomeScreen.routerName,
-      theme:  Provider.of<ThemeProvider>(context).currentTheme,
+      theme:  Provider.of<ThemeProvider>(context).currentTheme.copyWith(
+        appBarTheme: AppBarTheme(
+          backgroundColor: Provider.of<ThemeProvider>(context).currentTheme.brightness == Brightness.dark ? Colors.amber: Colors.green
+        )
+      ),
       routes: {
         HomeScreen.routerName :(context) => const HomeScreen(),
         SettingsScreen.routerName :(context) => const SettingsScreen(),
